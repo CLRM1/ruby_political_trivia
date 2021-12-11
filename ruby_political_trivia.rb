@@ -51,7 +51,7 @@ def trivia()
         end
       end
 
-# World triva
+# World trivia
   elsif choice == "w" || choice == "W"
 # First question
     puts "Who is the current president of France?"
