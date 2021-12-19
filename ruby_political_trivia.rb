@@ -80,20 +80,23 @@ def trivia()
 # World trivia
   elsif choice == "w" || choice == "W"
 # First question
+    space(70)
     puts "Who is the current president of France?"
     puts "A - Emmanuel Macron"
     puts "B - Fanscios Hollande"
     puts "C - Marine Le Pen"
     puts "D - Boris Johnson"
 
-    puts "---"
     france = STDIN.getch
-    puts "---"
+
     if france == "A" || france == "a"
+      space(70)
       puts "Correct, Emmanuel Macron is the current president of France."
     elsif france == "D" || france == "d"
+      space(70)
       puts "Incorrect, Boris Johnson is the UK Prime Minister. Emmanuel Macron is the correct answer."
     else
+      space(70)
       puts "Incorrect, Emmanuel Macron is the current president of France."
     end
   end
