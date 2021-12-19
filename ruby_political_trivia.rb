@@ -1,15 +1,23 @@
 # Defines trivia method
 def trivia()
+  require 'io/console'
+  def space(num)
+    num = num.times do
+    puts " "
+  end
+  end
+
   puts "Welcome to Political Trivia"
   puts " "
   puts "Would you like to play US trivia or World trivia?"
   puts "Enter u or w"
 
 # US trivia
-  choice = $stdin.gets.chomp
+  choice = STDIN.getch
 # Selected type of triva
   if choice == "u" || choice == "U"
 # First question
+    space(70)
     puts "Who is the current Vice President of the United States of America?"
     puts "a - Barack Obama"
     puts "b - Kamala Harris"
@@ -17,37 +25,55 @@ def trivia()
     puts "d - Al Gore"
 
     puts "---"
-    vp = $stdin.gets.chomp
+    vp = STDIN.getch
     puts "---"
 
     if vp == "B" || vp == "b"
+      space(70)
       puts "Correct, Kamala Harris is the current VP of the USA."
+      sleep(2)
       answer = 1
     elsif vp == "C" || vp == "c"
       puts "Nope, he's the President."
     else
-      puts "Wrong, Kamala Harris is the current VP of the USA."
+      puts "Incorrect, Kamala Harris is the current VP of the USA."
     end
 # Correct answer move on to second question
       if answer == 1
-        puts " "
-        puts "Next question"
-        puts " "
-
+        space(70)
         puts "Who is the current US Senate Majority leader?"
-        puts "A - Nancy Pelosi"
+        puts "A - Bernie Sanders"
         puts "B - Mitch McConnell"
         puts "C - Chuck Schumer"
         puts "D - Marco Rubio"
 
         puts "---"
-        senator = $stdin.gets.chomp
+        senator = STDIN.getch
         puts "---"
         puts " "
         if senator == "C" || senator == "c"
+          space(70)
           puts "Correct. Chuck Schumer is the current senate majority leader."
+          sleep(2)
+          if senator == "C" || senator == "c"
+            space(70)
+            puts "Who is the current US Speaker of the House"
+            puts "A - Kevin McCarthy"
+            puts "B - Nancy Pelosi"
+            puts "C - Diana DeGette"
+            puts "D - Adam Schiff"
+            puts "---"
+            speaker = STDIN.getch
+            puts "---"
+            puts " "
+            if speaker == "b" || speaker == "B"
+              puts "Correct, Nancy Pelosi is the current Speaker of the House."
+            else
+              puts "Incorrect, Nancy Pelosi is the current Speaker of the House."
+            end
+          end
         else
-          puts "You're wrong."
+          puts "Incorrect."
         end
       end
 
@@ -61,14 +87,14 @@ def trivia()
     puts "D - Boris Johnson"
 
     puts "---"
-    france = $stdin.gets.chomp
+    france = STDIN.getch
     puts "---"
     if france == "A" || france == "a"
       puts "Correct, Emmanuel Macron is the current president of France."
     elsif france == "D" || france == "d"
-      puts "Wrong, Boris Johnson is the UK Prime Minister. Emmanuel Macron is the correct answer."
+      puts "Incorrect, Boris Johnson is the UK Prime Minister. Emmanuel Macron is the correct answer."
     else
-      puts "Wrong, Emmanuel Macron is the current president of France."
+      puts "Incorrect, Emmanuel Macron is the current president of France."
     end
   end
 end
@@ -78,14 +104,15 @@ trivia()
 
 #define replay method to prompt user to play again
 def replay()
+  require 'io/console'
   puts "Play again? Y or N"
-  a = $stdin.gets.chomp
-  if a == "Y" || a == "y"
+  replay = STDIN.getch
+  if replay == "Y" || replay == "y"
     5.times do
       puts " "
     end
     trivia()
-  elsif a == "N" || a == "n"
+  elsif replay == "N" || replay == "n"
     puts "Game over"
   end
 end
